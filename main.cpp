@@ -129,6 +129,8 @@ void listPerson(Addressbooks * abs){
 
 void clearPerson(Addressbooks * abs){
     //如何实现清空？
+    abs->size = 0;
+    cout << "已清空" << endl;
 }
 
 
@@ -171,6 +173,7 @@ int main() {
                     changePerson(&abs);
                     break;
                 case 6:
+                    clearPerson(&abs);
                     break;
                 case 0:
                     cout << "欢迎下次使用" << endl;
