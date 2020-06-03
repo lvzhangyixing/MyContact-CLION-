@@ -120,7 +120,16 @@ void findPerson(Addressbooks * abs){
 }
 
 
+void listPerson(Addressbooks * abs){
+    for (int i = 0; i < abs->size; ++i) {
+        cout << "姓名：" << abs->personArray[i].memberName << " "
+             << "性别: " << abs->personArray[i].memberSex << endl;
+    }
+}
 
+void clearPerson(Addressbooks * abs){
+    //如何实现清空？
+}
 
 
 int main() {
@@ -153,6 +162,7 @@ int main() {
                     deletePerson(&abs);
                     break;
                 case 3:
+                    listPerson(&abs);
                     break;
                 case 4:
                     findPerson(&abs);
