@@ -87,7 +87,23 @@ void deletePerson(Addressbooks * abs){
 
 }
 
+void changePerson(Addressbooks * abs){
 
+    string name;
+    cout << "请输入您要查询的姓名" << endl;
+    cin >> name;
+    int ret = isExit(abs,name);  //ret接收isExist返回的index
+
+    int sex = 0;
+
+    if (ret < 0){
+        cout << "不存在该用户" << endl;
+    } else{
+        cout << "请输入性别" << endl;
+        cin >> sex;
+        abs->personArray[ret].memberSex = sex;
+    }
+}
 
 void listPerson(Addressbooks * abs){
     string name;
@@ -102,6 +118,7 @@ void listPerson(Addressbooks * abs){
            << "用户性别:  "  << abs->personArray[ret].memberSex << endl;
     }
 }
+
 
 
 
@@ -141,6 +158,7 @@ int main() {
                 case 4:
                     break;
                 case 5:
+                    changePerson(&abs);
                     break;
                 case 6:
                     break;
