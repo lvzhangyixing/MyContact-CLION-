@@ -105,7 +105,7 @@ void changePerson(Addressbooks * abs){
     }
 }
 
-void listPerson(Addressbooks * abs){
+void findPerson(Addressbooks * abs){
     string name;
     cout << "请输入您要查询的姓名" << endl;
     cin >> name;
@@ -153,9 +153,9 @@ int main() {
                     deletePerson(&abs);
                     break;
                 case 3:
-                    listPerson(&abs);
                     break;
                 case 4:
+                    findPerson(&abs);
                     break;
                 case 5:
                     changePerson(&abs);
