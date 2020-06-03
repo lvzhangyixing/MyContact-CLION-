@@ -18,8 +18,8 @@ void showMenue(){
 
     cout << "***************************" << endl;
     cout << "*****  1、添加联系人  *****" << endl;
-    cout << "*****  3、显示联系人  *****" << endl;
     cout << "*****  2、删除联系人  *****" << endl;
+    cout << "*****  3、显示联系人  *****" << endl;
     cout << "*****  4、查找联系人  *****" << endl;
     cout << "*****  5、修改联系人  *****" << endl;
     cout << "*****  6、清空联系人  *****" << endl;
@@ -28,6 +28,7 @@ void showMenue(){
 
 }
 
+//遍历搜索，匹配则返回index
 int isExit(Addressbooks *abs, const string& name){
     for (int i = 0; i <= abs->size; ++i) {
 
@@ -88,6 +89,19 @@ void deletePerson(Addressbooks * abs){
 
 
 
+void listPerson(Addressbooks * abs){
+    string name;
+    cout << "请输入您要查询的姓名" << endl;
+    cin >> name;
+    int ret = isExit(abs,name);  //ret接收isExist返回的index
+
+    if (ret < 0){
+        cout << "不存在该用户" << endl;
+    } else{
+        cout << "用户名:  " << abs->personArray[ret].memberName  <<"   "
+           << "用户性别:  "  << abs->personArray[ret].memberSex << endl;
+    }
+}
 
 
 
@@ -122,6 +136,7 @@ int main() {
                     deletePerson(&abs);
                     break;
                 case 3:
+                    listPerson(&abs);
                     break;
                 case 4:
                     break;
